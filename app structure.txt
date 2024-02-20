@@ -1,0 +1,5 @@
+database name: tasks
+
+Task is the object repesented as a model in mongoose
+
+app is for the backend 
