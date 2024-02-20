@@ -21,6 +21,16 @@ https://angular.io/guide/setup-local
 
 npm install -g @angular/cli (to install angular globably)
 
+ng new AngularApp
+
+cd AngularApp
+in the tsconfig.json file, add " "strictPropertyInitialization": false " to the angularcompileroptions
+
+ng generate component [componentname] generates a component, componentname, which will be task this time so 
+
+ng g component task
+(g is short for generate)
+
 type in a terminal (google how to install angular i guess)
 ng serve --open 
 
