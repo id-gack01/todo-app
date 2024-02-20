@@ -1,0 +1,153 @@
+<h3>To Do App</h3>
+
+<!-- <input type="text" [(ngModel)]="title">    -->
+<!-- the title variable is two way binded to the input field -->
+
+<!-- <p>{{title}}</p> -->
+
+<!-- so in my task rows, the  -->
+
+<div class="row">
+    <div class="col s12 m6">
+      <div class="card">
+        <div class="card-content white-text">
+
+            
+            <div class="row">
+                <div class="col s5"> <!--This div will be for the task entry form-->
+                    <!--#taskForm is a local reference, ngSubmit event binds the onSubmit function defeined in the taskComponent to the ngSubmit -->
+                <form #taskForm="ngForm" (ngSubmit) ="onSubmit(taskForm)">
+                    <!-- I need to create multiple <row> divs with two way databinding between the event binding and the property binding -->
+                    <!-- The [()] syntax combines the brackets of property binding, [], with the parentheses of event binding, () -->
+                    <!-- each row will correspond to a field in the to do task card -->
+                <!-- notice how I used the taskService.selectedTask object provided to the task via the taskService export -->
+
+                    <input type="hidden" name="_id" #id="ngModel" [(ngModel)]="taskService.selectedTask._id">
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <label><label class="red-text">*</label>Task: </label>
+                            <input type="text" name="taskname" name="ngModel" [(ngModel)]="taskService.selectedTask.taskname" placeholder="Task name" required>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <label>Description: </label>
+                            <input type="text" name="taskdescription" name="ngModel" [(ngModel)]="taskService.selectedTask.description" placeholder="task description">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <label>Date: </label>
+                            <input type="date" name="date" name="ngModel" [(ngModel)]="taskService.selectedTask.date">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                    
+                        <!-- <label>Summary: </label>
+                        <select (change)="SelectCompletionStatus($event.target.value)" class="select">
+                            <option value="0">--All--</option>
+                            <option *ngFor="let option of options" value="{{option.Id.Value}}"></option>
+                        </select> -->
+                        
+
+                        <select name="completionstatus" [(ngModel)]="taskService.selectedTask.completionstatus" >
+                            <option>unstarted</option>
+                            <option>in-progress</option>
+                            <option>complete</option>
+                        </select>
+                    </div>
+
+
+                    <!--the click action activates the resetForm function defined the employee component  -->
+                    
+                        <div class="row">
+                        <div class="input-field col s12">
+                        <button class="btn btn-custon right" type="button" (click)="resetForm(taskForm)">Reset</button> 
+                        <button class="btn btn-custon right" type="submit" [disabled]="!taskForm.valid">Submit</button> 
+                    </div>
+                    </div> 
+                
+
+                </form>
+                </div>
+
+                <div class="col s7"> <!--This div will show the list of tasks present in the database-->
+                
+                </div> <!--this is the dive-->
+           
+        </div>
+      </div>
+    </div>
+  </div>
+
+just the row
+
+<div class="row">
+                    <div class="col s5"> <!--This div will be for the task entry form-->
+                        <!--#taskForm is a local reference, ngSubmit event binds the onSubmit function defeined in the taskComponent to the ngSubmit -->
+                      <form #taskForm="ngForm" (ngSubmit) ="onSubmit(taskForm)">
+                        <!-- I need to create multiple <row> divs with two way databinding between the event binding and the property binding -->
+                        <!-- The [()] syntax combines the brackets of property binding, [], with the parentheses of event binding, () -->
+                        <!-- each row will correspond to a field in the to do task card -->
+                       <!-- notice how I used the taskService.selectedTask object provided to the task via the taskService export -->
+
+                        <input type="hidden" name="_id" #id="ngModel" [(ngModel)]="taskService.selectedTask._id">
+
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <label><label class="red-text">*</label>Task: </label>
+                                <input type="text" name="taskname" name="ngModel" [(ngModel)]="taskService.selectedTask.taskname" placeholder="Task name" required>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <label>Description: </label>
+                                <input type="text" name="taskdescription" name="ngModel" [(ngModel)]="taskService.selectedTask.description" placeholder="task description">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <label>Date: </label>
+                                <input type="date" name="date" name="ngModel" [(ngModel)]="taskService.selectedTask.date">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                           
+                            <!-- <label>Summary: </label>
+                            <select (change)="SelectCompletionStatus($event.target.value)" class="select">
+                                <option value="0">--All--</option>
+                                <option *ngFor="let option of options" value="{{option.Id.Value}}"></option>
+                            </select> -->
+                            
+
+                            <select name="completionstatus" [(ngModel)]="taskService.selectedTask.completionstatus" >
+                                <option>unstarted</option>
+                                <option>in-progress</option>
+                                <option>complete</option>
+                            </select>
+                        </div>
+
+
+                        <!--the click action activates the resetForm function defined the employee component  -->
+                        
+                            <div class="row">
+                            <div class="input-field col s12">
+                             <button class="btn btn-custon right" type="button" (click)="resetForm(taskForm)">Reset</button> 
+                             <button class="btn btn-custon right" type="submit" [disabled]="!taskForm.valid">Submit</button> 
+                           </div>
+                           </div> 
+                       
+
+                      </form>
+                    </div>
+
+                    <div class="col s7"> <!--This div will show the list of tasks present in the database-->
+                      
+                    </div>

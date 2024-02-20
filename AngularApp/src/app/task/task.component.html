@@ -1,0 +1,129 @@
+<h3>To Do App</h3>
+
+<!-- <input type="text" [(ngModel)]="title">    -->
+<!-- the title variable is two way binded to the input field -->
+
+<!-- <p>{{title}}</p> -->
+
+<!-- if I put in taskForm as a parameter in resetForm, the new Task button edits the existing taskForm -->
+<button type="button" (click)="resetForm()" >New Task</button> 
+<div class="row">
+    <div class="col s12 m6">
+      <div class="card">
+        <div class="card-content white-text">
+
+            <div class="row">
+                <div id= "new-task" class="col s5"> <!--This div will be for the task entry form-->
+                    <!--#taskForm is a local reference, ngSubmit event binds the onSubmit function defeined in the taskComponent to the ngSubmit -->
+                <form #taskForm="ngForm" (ngSubmit) ="onSubmit(taskForm)">
+                    <!-- I need to create multiple <row> divs with two way databinding between the event binding and the property binding -->
+                    <!-- The [()] syntax combines the brackets of property binding, [], with the parentheses of event binding, () -->
+                    <!-- each row will correspond to a field in the to do task card -->
+                <!-- notice how I used the taskService.selectedTask object provided to the task via the taskService export -->
+                    
+                    <input type="hidden" name="_id" #id="ngModel" [(ngModel)]="taskService.selectedTask._id">
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <label><label class="red-text">*</label>Task: </label>
+                            <input type="text" name="taskname" #name="ngModel" [(ngModel)]="taskService.selectedTask.taskname" placeholder="Task name" required>
+                        </div>
+                    </div>
+
+                    
+                        <!-- this is the old description box -->
+                    <!-- 
+                        <div class="row">
+                        <div class="input-field col s12">
+                            <label>Description: </label>
+                            <input type="text" name="taskdescription" #name="ngModel" [(ngModel)]="taskService.selectedTask.description" placeholder="task description">
+                        </div>
+                    </div>  
+                -->
+               
+
+                <!-- made a textarea version of the description -->
+                <!-- the description is the last thing I need to get submitted successfully -->
+                <!-- changed the name from taskdescription to just description -->
+                <!-- the name of the control (name in the input form HAS to match the model name ) -->
+                <!-- get a word wrap function for text area -->
+                
+                    <div class="row">
+                        <label>Description: </label>
+                        <div class="input-field col s12">
+                            <textarea type="text" name="description" rows="4" cols="50" #name="ngModel" [(ngModel)]="taskService.selectedTask.description" placeholder="Describe the task"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <label>Date: </label>
+                            <input type="date" name="date" #name="ngModel" [(ngModel)]="taskService.selectedTask.date">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                    
+                        <!-- <label>Summary: </label>
+                        <select (change)="SelectCompletionStatus($event.target.value)" class="select">
+                            <option value="0">--All--</option>
+                            <option *ngFor="let option of options" value="{{option.Id.Value}}"></option>
+                        </select> -->
+
+                        <select name="completionstatus" [(ngModel)]="taskService.selectedTask.completionstatus" >
+                            <option selected>unstarted</option>
+                            <option >in-progress</option>
+                            <option >complete</option>
+                        </select>
+                    </div>
+
+
+                    <!--the click action activates the resetForm function defined in the employee component  -->
+                    
+                        <div class="row">
+                        <div class="input-field col s12">
+                        <button class="btn btn-custom right" type="button" (click)="resetForm(taskForm)">Reset</button> 
+                        <button class="btn btn-custom right" type="submit" [disabled]="!taskForm.valid">Submit</button> 
+                    </div>
+                    </div> 
+                
+
+                </form>
+                </div>
+
+                 <!--This div will show the list of tasks present in the database-->
+                <div id= "task-table" class="col s7">
+                    <table class="reponsive-table highlight">
+                    <thead>
+                        <tr>
+                        <th>Task Name</th>
+                        <th>Task Description</th>
+                        <th>Date</th>
+                        <th>Completion Status</th>
+                        <th></th> 
+                        </tr>
+                    </thead>
+                    <tr *ngFor="let task of taskService.tasks">
+                        <td>{{task.taskname}}</td>
+                        <td>{{task.description}}</td>
+                        <td>{{task.date}}</td>
+                        <td>{{task.completionstatus}}</td>
+                        <td>
+                        <a class="action-btn" (click)="onEdit(task)">
+                            <i class="material-icons">edit</i>
+                        </a>
+                        
+                        <a class="action-btn" (click)="onDelete(task._id, taskForm)">
+                            <i class="material-icons"> delete</i>
+                        </a>
+                        </td>
+                    </tr>
+                    </table>
+                </div>
+                
+                
+           
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,18 @@
+<!--the click action activates the resetForm function defined the employee component  -->
+
+ <!-- <div class="input-field col s12">
+                                <label>Completion Status: </label>
+                                <input type="text" name="taskdescription" name="ngModel" [(ngModel)]="taskService.selectedTask.completionstatus" placeholder="choose a status">
+                            </div> -->
+
+the dropdownlist that requires money
+<ejs-dropdownlist [dataSource]="CompletionStatus" placeholder = 'Choose a completion staus' 
+                            [(ngModel)]="taskService.selectedTask.completionstatus" popupHeight='200px' popupWidth='250px'> 
+
+                            </ejs-dropdownlist>
+
+the form flatout isn't showing up still
+
+so I had partial success in posting from the angular front end, however, only the generated id and completion status successfully posted
+turns out you need the #name for a directive in angular 
+I also need to make sure the name (different from the #name above) to match the model names in the task shared folder
