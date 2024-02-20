@@ -17,6 +17,9 @@ node db.js
 nodemon start in the folder where app.js is located to start the back end
 
 to open the angular app
+https://angular.io/guide/setup-local
+
+npm install -g @angular/cli (to install angular globably)
 
 type in a terminal (google how to install angular i guess)
 ng serve --open 
