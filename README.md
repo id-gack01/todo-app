@@ -9,6 +9,7 @@ npm i nodemon cors express rxjs
 
 get mongodb set up (https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-windows/),
 
+make a database labeled CrudDB
 make a collection labeled tasks
 
 in a terminal, first do
