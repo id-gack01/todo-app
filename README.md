@@ -3,6 +3,11 @@ created a program to enter and display tasks in a todo app setting
 
 no styles because I don't need those
 
+create a folder called todo-app
+cd into that folder
+
+
+
 npm init to get node modules
 
 npm i nodemon cors express rxjs 
@@ -17,7 +22,7 @@ node db.js
 
 nodemon start in the folder where app.js is located to start the back end
 
-to open the angular app
+Now to open the angular app
 https://angular.io/guide/setup-local
 
 npm install -g @angular/cli (to install angular globably)
