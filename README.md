@@ -3,8 +3,7 @@ created a program to enter and display tasks in a todo app setting
 
 no styles because I don't need those
 
-create a folder called todo-app
-cd into that folder
+create a folder called todo-app, cd into that folder
 
 
 
