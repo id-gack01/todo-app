@@ -17,7 +17,7 @@ create a folder called todo-app, cd into that folder
 
 npm init to get node modules
 
-*npm i nodemon cors express rxjs* 
+*npm i nodemon cors express mongoose rxjs* 
 
 get mongodb set up (https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-windows/),
 
