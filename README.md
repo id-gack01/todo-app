@@ -3,6 +3,10 @@ created a program to enter and display tasks in a todo app setting
 
 no styles because I don't need those
 
+
+writing this made me realize why it's so confusing sometimes to set up a github downloaded program, 
+the writing just includes multiple assumptions right out the box, plus I had to do things like drop 
+node modules. 
 create a folder called todo-app, cd into that folder
 
 
