@@ -1,5 +1,5 @@
 # todo-app
-created a program to enter and display tasks in a todo app setting
+created a program to enter and display tasks in a todo app setting. This is just to demonstrate the workings of a fullstack app done in a partciular tech stack. I guess in the future, making a spring boot budget app wouldn't be too bad an idea. 
 
 no styles because I don't need those
 
