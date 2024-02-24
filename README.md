@@ -29,7 +29,9 @@ Open up notepad and copypaste all the following 3 lines into it, then save as a 
 
 ____
 cd C:\Program Files\MongoDB\Server\5.0\bin
+
 mongod.exe --dbpath C:\Users\[userName]\Documents\mongo-data
+
 :pause
 ____
 Right click this file and click run as administrator
