@@ -3,7 +3,7 @@
 //remember to rerun on the update.... or download nodemon
 // this could be the mongoclient constructor, { useUnifiedTopology: true },
 // db.adminCommand( { setFeatureCompatibilityVersion: "5.0" } ) . 
-// had to downgrade to  5.0 for no fucking reason
+// had to downgrade to  5.0
 // had to change 'localhost' to '127.0.0.1' 
 
 
